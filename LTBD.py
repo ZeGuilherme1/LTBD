@@ -3,15 +3,16 @@ import os
 import re
 
 ascii_title = """
+________________________________________________________________________________________
 
-
-                    ██      ████████ ██████  ██████  
-                    ██         ██    ██   ██ ██   ██ 
-                    ██         ██    ██████  ██   ██ 
-                    ██         ██    ██   ██ ██   ██ 
-                    ███████    ██    ██████  ██████  
-                                 
-            Welcome to LibreTube Downloader, a Python study application.
+                            ██      ████████ ██████  ██████  
+                            ██         ██    ██   ██ ██   ██ 
+                            ██         ██    ██████  ██   ██ 
+                            ██         ██    ██   ██ ██   ██ 
+                            ███████    ██    ██████  ██████  
+                                            
+                Welcome to LibreTube Downloader, a Python study application.
+________________________________________________________________________________________
 """
 
 print(ascii_title)
@@ -24,11 +25,11 @@ def is_valid_url(url):
 
 def get_valid_url():
     while True:
-        url = input("Enter a YouTube video URL: ")
+        url = input("Enter a YouTube video URL: \n")
         if is_valid_url(url):
             return url
         else:
-            print("Invalid URL! Please enter a valid YouTube URL.")
+            print("Invalid URL! Please enter a valid YouTube URL.\n")
 
 url = get_valid_url()
 
@@ -45,9 +46,9 @@ def list_formats(url):
 
 formats = list_formats(url)
 
-format_choice = int(input("> Enter the video format selecting the number option ([4] For example): "))
+format_choice = int(input("> Enter the video format selecting the number option ([4] For example): \n"))
 
-output_dir = input("Enter the directory to save ([/home/user/folder] For example): ")
+output_dir = input("Enter the directory to save ([/home/user/folder] For example): \n")
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
@@ -59,5 +60,5 @@ ydl_opts = {
 
 with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     ydl.download([url])
-
+print("\n") 
 print(" > Successful Download!")
